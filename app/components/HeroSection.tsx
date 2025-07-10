@@ -99,7 +99,7 @@ export default function HeroSection() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 + index * 0.1 }}
-                  className={`px-3 sm:px-4 py-2 bg-${tech.color}-500/10 border border-${tech.color}-500/20 rounded-full text-${tech.color}-400 text-xs sm:text-sm font-medium hover:bg-${tech.color}-500/20 transition-all duration-300 cursor-default`}
+                  className={`px-3 sm:px-4 py-2 bg-${tech.color}-500/10 border border-${tech.color}-500/20 rounded-full text-${tech.color}-400 text-xs sm:text-sm font-medium hover:bg-${tech.color}-500/20 transition-all duration-300 cursor-default hover:text-purple-800`}
                 >
                   {tech.name}
                 </motion.span>
