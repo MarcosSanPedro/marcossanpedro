@@ -1,148 +1,249 @@
-'use client';
+"use client"
 
-import { motion } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { motion } from "framer-motion"
+import { useState, useRef, useEffect } from "react"
+import { ChevronDown } from "lucide-react"
 
 export default function HeroSection() {
-	const [selectedStack, setSelectedStack] = useState<'frontend' | 'backend' | 'devops' | null>(null);
-	const autoScrolledRef = useRef(false);
+  const [selectedStack, setSelectedStack] = useState<"frontend" | "backend" | "devops" | null>(null)
+  const autoScrolledRef = useRef(false)
+  let ifScrollDown = autoScrolledRef.current
 
-	useEffect(() => {
-		const handleScroll = () => {
-			if (!autoScrolledRef.current && window.scrollY > 40) {
-				document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-				autoScrolledRef.current = true;
-			}
-		};
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+ 
+  useEffect(() => {
+    const handleScroll = () => {
+				
+      if (!autoScrolledRef.current && window.scrollY > 40) {
+        document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+        autoScrolledRef.current = true
+      }
+    }
 
-	return (
-		<section className="min-h-screen relative overflow-hidden py-24 md:py-0">
-			<div className="absolute inset-0">
-				<div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-			</div>
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [ifScrollDown])
 
-			<div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-8 md:pt-0">
-				<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8 md:mb-12">
-					<div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
-						<h1 className="text-4xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500">
-							Marcos San Pedro 
-						</h1>
-						<h2 className="text-2xl md:text-4xl font-bold text-white">Software Dev | Front-End Engineer</h2>
-						<p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-						I build modern, responsive web applications from concept to deployment, combining React, TypeScript, and Python to deliver clean, scalable solutions.
-						</p>
-						<p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
-						Engineering and Computer Science, I bring a strong foundation in problem-solving and a commitment to exceptional user experience and performance.
-						</p>
-					</div>
-					<div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8">
-						<span className="px-3 md:px-4 py-1.5 md:py-2 bg-blue-500/10 rounded-full text-blue-400 text-xs md:text-sm">TypeScript</span>
-						<span className="px-3 md:px-4 py-1.5 md:py-2 bg-purple-500/10 rounded-full text-purple-400 text-xs md:text-sm">FastApi</span>
-						<span className="px-3 md:px-4 py-1.5 md:py-2 bg-teal-500/10 rounded-full text-teal-400 text-xs md:text-sm"> UI/UX Design</span>
-						<span className="px-3 md:px-4 py-1.5 md:py-2 bg-blue-500/10 rounded-full text-blue-400 text-xs md:text-sm">Python</span>
-						<span className="px-3 md:px-4 py-1.5 md:py-2 bg-violet-400/10 rounded-full text-violet-400 text-xs md:text-sm"> TailwindCSS</span>
-						<span className="px-3 md:px-4 py-1.5 md:py-2 bg-teal-500/10 rounded-full text-teal-400 text-xs md:text-sm"> SQLalquemy</span>
-						<span className="px-3 md:px-4 py-1.5 md:py-2 bg-blue-500/10 rounded-full text-blue-400 text-xs md:text-sm">React</span>
-					</div>
-				</motion.div>
+  return (
+    <section className="min-h-screen relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-teal-500/5" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      </div>
 
-				{/* Interactive System Architecture */}
-				<div className="w-full max-w-5xl mx-auto relative px-2 md:px-4">
-					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.3 }}
-						className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-gray-800 p-4 md:p-8"
-					>
-						<div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-							{/* Frontend Layer */}
-							<div
-								className={`p-4 md:p-6 rounded-lg transition-colors border-2 ${
-									selectedStack === 'frontend' ? 'bg-blue-500/20 border-blue-500/50' : 'bg-gray-800/50 hover:bg-gray-800/80 border-transparent'
-								}`}
-								onMouseEnter={() => setSelectedStack('frontend')}
-								onMouseLeave={() => setSelectedStack(null)}
-							>
-								<h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-blue-400">Frontend Development</h3>
-								<ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-400">
-									<li className="flex items-center gap-2">
-										<div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-										Modern React Architectures
-									</li>
-									<li className="flex items-center gap-2">
-										<div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-										Performance Optimization
-									</li>
-									<li className="flex items-center gap-2">
-										<div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-										Responsive & Interactive UIs
-									</li>
-								</ul>
-							</div>
+      <div className="relative z-10 min-h-screen flex flex-col px-4 sm:px-6 lg:px-8">
+        {/* Main Content Container */}
+        <div className="flex-1 flex flex-col justify-center py-12 sm:py-16 lg:py-20">
+          {/* Hero Text Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-8 sm:mb-12 lg:mb-16"
+          >
+            <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-3xl sm:text-5xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 leading-tight"
+              >
+                Marcos San Pedro Caballero
+              </motion.h1>
 
-							{/* Backend Layer */}
-							<div
-								className={`p-4 md:p-6 rounded-lg transition-colors border-2 ${
-									selectedStack === 'backend' ? 'bg-purple-500/20 border-purple-500/50' : 'bg-gray-800/50 hover:bg-gray-800/80 border-transparent'
-								}`}
-								onMouseEnter={() => setSelectedStack('backend')}
-								onMouseLeave={() => setSelectedStack(null)}
-							>
-								<h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-purple-400">Backend Development</h3>
-								<ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-400">
-									<li className="flex items-center gap-2">
-										<div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-										API Design & Development
-									</li>
-									<li className="flex items-center gap-2">
-										<div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-										Database Architecture
-									</li>
-									<li className="flex items-center gap-2">
-										<div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-										Real-time Systems
-									</li>
-								</ul>
-							</div>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-xl sm:text-2xl lg:text-4xl font-bold text-white"
+              >
+                Software Dev | Front-End Engineer
+              </motion.h2>
 
-							{/* DevOps Layer */}
-							<div
-								className={`p-4 md:p-6 rounded-lg transition-colors border-2 ${
-									selectedStack === 'devops' ? 'bg-teal-500/20 border-teal-500/50' : 'bg-gray-800/50 hover:bg-gray-800/80 border-transparent'
-								}`}
-								onMouseEnter={() => setSelectedStack('devops')}
-								onMouseLeave={() => setSelectedStack(null)}
-							>
-								<h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-teal-400">Project Management</h3>
-								<ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-400">
-									<li className="flex items-center gap-2">
-										<div className="w-1.5 h-1.5 bg-teal-500 rounded-full" />
-										Full project lifecycles
-									</li>
-									<li className="flex items-center gap-2">
-										<div className="w-1.5 h-1.5 bg-teal-500 rounded-full" />
-										High-quality delivery
-									</li>
-									<li className="flex items-center gap-2">
-										<div className="w-1.5 h-1.5 bg-teal-500 rounded-full" />
-										Scalable Architecture
-									</li>
-								</ul>
-							</div>
-						</div>
-					</motion.div>
-				</div>
-				{/* Scroll Down Button */}
-				<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-					<a href="#projects" className="group flex flex-col items-center cursor-pointer">
-						<span className="animate-bounce text-3xl text-blue-400 group-hover:text-blue-300 transition-colors">↓</span>
-						<span className="text-xs text-gray-400 mt-1 group-hover:text-white transition-colors">Scroll to Projects</span>
-					</a>
-				</div>
-			</div>
-		</section>
-	);
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="space-y-3 sm:space-y-4"
+              >
+                <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                  I build modern, responsive web applications from concept to deployment, combining React, TypeScript,
+                  and Python to deliver clean, scalable solutions.
+                </p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                  Engineering and Computer Science, I bring a strong foundation in problem-solving and a commitment to
+                  exceptional user experience and performance.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Tech Stack Tags */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12"
+            >
+              {[
+                { name: "TypeScript", color: "blue" },
+                { name: "FastApi", color: "purple" },
+                { name: "UI/UX Design", color: "teal" },
+                { name: "Python", color: "blue" },
+                { name: "TailwindCSS", color: "purple" },
+                { name: "SQLalchemy", color: "teal" },
+                { name: "React", color: "blue" },
+              ].map((tech, index) => (
+                <motion.span
+                  key={tech.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  className={`px-3 sm:px-4 py-2 bg-${tech.color}-500/10 border border-${tech.color}-500/20 rounded-full text-${tech.color}-400 text-xs sm:text-sm font-medium hover:bg-${tech.color}-500/20 transition-all duration-300 cursor-default`}
+                >
+                  {tech.name}
+                </motion.span>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Interactive System Architecture */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="w-full max-w-6xl mx-auto"
+          >
+            <div className="bg-gray-900/60 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-4 sm:p-6 lg:p-8 shadow-2xl">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                {/* Frontend Layer */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className={`p-4 sm:p-6 rounded-xl transition-all duration-300 border-2 cursor-pointer ${
+                    selectedStack === "frontend"
+                      ? "bg-blue-500/20 border-blue-400/50 shadow-lg shadow-blue-500/20"
+                      : "bg-gray-800/50 hover:bg-gray-800/80 border-gray-700/50 hover:border-gray-600/50"
+                  }`}
+                  onMouseEnter={() => setSelectedStack("frontend")}
+                  onMouseLeave={() => setSelectedStack(null)}
+                >
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-blue-400 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                    Frontend Development
+                  </h3>
+                  <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-300">
+                    {["Modern React Architectures", "Performance Optimization", "Responsive & Interactive UIs"].map(
+                      (item, index) => (
+                        <motion.li
+                          key={item}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.7 + index * 0.1 }}
+                          className="flex items-center gap-3"
+                        >
+                          <div className="w-1.5 h-1.5 bg-blue-400 rounded-full flex-shrink-0" />
+                          {item}
+                        </motion.li>
+                      ),
+                    )}
+                  </ul>
+                </motion.div>
+
+                {/* Backend Layer */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className={`p-4 sm:p-6 rounded-xl transition-all duration-300 border-2 cursor-pointer ${
+                    selectedStack === "backend"
+                      ? "bg-purple-500/20 border-purple-400/50 shadow-lg shadow-purple-500/20"
+                      : "bg-gray-800/50 hover:bg-gray-800/80 border-gray-700/50 hover:border-gray-600/50"
+                  }`}
+                  onMouseEnter={() => setSelectedStack("backend")}
+                  onMouseLeave={() => setSelectedStack(null)}
+                >
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-purple-400 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+                    Backend Development
+                  </h3>
+                  <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-300">
+                    {["API Design & Development", "Database Architecture", "Real-time Systems"].map((item, index) => (
+                      <motion.li
+                        key={item}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.8 + index * 0.1 }}
+                        className="flex items-center gap-3"
+                      >
+                        <div className="w-1.5 h-1.5 bg-purple-400 rounded-full flex-shrink-0" />
+                        {item}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+
+                {/* DevOps Layer */}
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className={`p-4 sm:p-6 rounded-xl transition-all duration-300 border-2 cursor-pointer ${
+                    selectedStack === "devops"
+                      ? "bg-teal-500/20 border-teal-400/50 shadow-lg shadow-teal-500/20"
+                      : "bg-gray-800/50 hover:bg-gray-800/80 border-gray-700/50 hover:border-gray-600/50"
+                  }`}
+                  onMouseEnter={() => setSelectedStack("devops")}
+                  onMouseLeave={() => setSelectedStack(null)}
+                >
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-teal-400 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
+                    Project Management
+                  </h3>
+                  <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-300">
+                    {["Full project lifecycles", "High-quality delivery", "Scalable Architecture"].map(
+                      (item, index) => (
+                        <motion.li
+                          key={item}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.9 + index * 0.1 }}
+                          className="flex items-center gap-3"
+                        >
+                          <div className="w-1.5 h-1.5 bg-teal-400 rounded-full flex-shrink-0" />
+                          {item}
+                        </motion.li>
+                      ),
+                    )}
+                  </ul>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Scroll Down Button - Now properly spaced */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2 }}
+          className="flex justify-center pb-8 sm:pb-12"
+        >
+          <a
+            href="#projects"
+            className="group flex flex-col items-center cursor-pointer p-4 rounded-full hover:bg-gray-800/30 transition-all duration-300"
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+              className="flex flex-col items-center"
+            >
+              <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400 group-hover:text-blue-300 transition-colors" />
+              <span className="text-xs sm:text-sm text-gray-400 mt-2 group-hover:text-white transition-colors font-medium">
+                Scroll to Projects
+              </span>
+            </motion.div>
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  )
 }
