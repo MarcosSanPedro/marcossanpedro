@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: '[Your Name] - Full-Stack Developer',
+	title: 'Marcos San Pedro Caballero - Software Developer',
 	description:
 		'Welcome to my portfolio! I am a passionate full-stack developer who bridges the gap between frontend and backend development. Specializing in creating complete web solutions, from beautiful user interfaces to robust server architectures.',
 	keywords: [
@@ -31,22 +31,22 @@ export const metadata: Metadata = {
 		'DevOps',
 		'System Architecture',
 		'Web Development',
-		'[Your Name]',
+		'Marcos San Pedro',
 	],
-	authors: [{ name: '[Your Name]' }],
-	creator: '[Your Name]',
+	authors: [{ name: 'Marcos San Pedro' }],
+	creator: 'Marcos San Pedro',
 	openGraph: {
-		title: '[Your Name] - Full-Stack Developer Portfolio',
+		title: 'Marcos San Pedro Caballero - Software Developer',
 		description:
-			'Passionate full-stack developer creating complete web solutions. Explore my projects and technical expertise across the entire development stack.',
-		url: 'https://your-domain.com',
-		siteName: '[Your Name] - Portfolio',
+			'Passionate Software Dev creating complete web solutions. Explore my projects and technical expertise across the entire development stack.',
+		url: 'https://marcossanpedro.com',
+		siteName: 'Marcos San Pedro - Portfolio',
 		images: [
 			{
 				url: '/og-image.jpg',
 				width: 1200,
 				height: 630,
-				alt: '[Your Name] - Full-Stack Developer Portfolio',
+				alt: 'Marcos San Pedro - Software Developer',
 			},
 		],
 		locale: 'en_US',
@@ -54,10 +54,10 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: '[Your Name] - Full-Stack Developer',
+		title: 'Marcos San Pedro Caballero - Full-Stack Developer',
 		description:
 			'Passionate full-stack developer creating complete web solutions. Explore my projects and technical expertise across the entire development stack.',
-		creator: '@yourusername',
+		creator: '@MarcosSanP61518',
 		images: ['/og-image.jpg'],
 	},
 	robots: {

@@ -1,10 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function HeroSection() {
 	const [selectedStack, setSelectedStack] = useState<'frontend' | 'backend' | 'devops' | null>(null);
+	const autoScrolledRef = useRef(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (!autoScrolledRef.current && window.scrollY > 40) {
+				document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+				autoScrolledRef.current = true;
+			}
+		};
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
 
 	return (
 		<section className="min-h-screen relative overflow-hidden py-24 md:py-0">
@@ -122,6 +134,13 @@ export default function HeroSection() {
 							</div>
 						</div>
 					</motion.div>
+				</div>
+				{/* Scroll Down Button */}
+				<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+					<a href="#projects" className="group flex flex-col items-center cursor-pointer">
+						<span className="animate-bounce text-3xl text-blue-400 group-hover:text-blue-300 transition-colors">↓</span>
+						<span className="text-xs text-gray-400 mt-1 group-hover:text-white transition-colors">Scroll to Projects</span>
+					</a>
 				</div>
 			</div>
 		</section>
