@@ -7,7 +7,7 @@ import { ChevronDown } from "lucide-react"
 export default function HeroSection() {
   const [selectedStack, setSelectedStack] = useState<"frontend" | "backend" | "devops" | null>(null)
   const autoScrolledRef = useRef(false)
-  let ifScrollDown = autoScrolledRef.current
+
 
  
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function HeroSection() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [ifScrollDown])
+  }, [])
 
   return (
     <section className="min-h-screen relative overflow-hidden">
