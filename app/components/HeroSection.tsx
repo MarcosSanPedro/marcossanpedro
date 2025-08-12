@@ -1,12 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useState, useRef, useEffect } from "react"
+import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 
 export default function HeroSection() {
   const [selectedStack, setSelectedStack] = useState<"frontend" | "backend" | "devops" | null>(null)
-  const autoScrolledRef = useRef(false)
 
 
  
