@@ -10,18 +10,7 @@ export default function HeroSection() {
 
 
  
-  useEffect(() => {
-    const handleScroll = () => {
-				
-      if (!autoScrolledRef.current && window.scrollY > 40) {
-        document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
-        autoScrolledRef.current = true
-      }
-    }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   return (
     <section className="min-h-screen relative overflow-hidden">
