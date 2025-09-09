@@ -80,6 +80,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
+			<head>
+			<script defer src="https://analytics.xeet.dev/script.js" data-website-id="76ffc9a1-95fb-4a75-be1a-f94e58b413fc"></script>
+			</head>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
 		</html>
 	);
