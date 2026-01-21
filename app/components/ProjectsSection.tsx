@@ -193,6 +193,90 @@ export default function ProjectsSection() {
               </div>
             </div>
           </motion.div>
+
+          {/* Moxel Labs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gray-900/50 rounded-xl overflow-hidden border border-gray-800"
+          >
+            <div className="p-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-4">Moxel Labs</h3>
+                    <p className="text-gray-400">
+                      Moxel Labs is a software development company focused on
+                      designing and building internal tools and platforms for
+                      managing, visualizing, and analyzing complex systems and
+                      data. I contributed to the UI development and am currently
+                      working with the team to build the core software platform.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="text-sm font-semibold text-blue-400 mb-3">
+                        Frontend Development
+                      </h4>
+                      <ul className="space-y-2 text-sm text-gray-400">
+                        <li>
+                          • Modern UI design with focus on data visualization
+                          and clarity.
+                        </li>
+                        <li>
+                          • Clean architecture patterns for maintainable code.
+                        </li>
+                        <li>
+                          • Responsive layouts optimized for complex data
+                          displays.
+                        </li>
+                        <li>
+                          • Intuitive navigation for exploring system data.
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-semibold text-purple-400 mb-3">
+                        Platform Focus
+                      </h4>
+                      <ul className="space-y-2 text-sm text-gray-400">
+                        <li>• Clear system structure visualization.</li>
+                        <li>• Reliable data flow management.</li>
+                        <li>• Backend service integrations.</li>
+                        <li>• High-performance data analysis tools.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h4 className="text-sm font-semibold text-teal-400">
+                      My Contributions
+                    </h4>
+                    <ul className="space-y-2 text-sm text-gray-400">
+                      <li>• Designed and implemented the user interface</li>
+                      <li>• Ongoing development of core platform features</li>
+                      <li>
+                        • Building tools for system management and data
+                        exploration
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-black/30 rounded-xl p-6 my-auto">
+                  <motion.a
+                    href="https://moxel.ai"
+                    target="_blank"
+                    className="block transition-transform duration-300 ease-out hover:scale-105 hover:shadow-2xl"
+                  >
+                    <img src="/moxel.png" alt="Moxel Labs platform" />
+                  </motion.a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
