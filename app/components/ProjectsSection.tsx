@@ -27,9 +27,18 @@ export default function ProjectsSection() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-4">
-                      Truck Fleet Managment Software
-                    </h3>
+                    <div className="flex items-center gap-3 mb-4">
+                      <h3 className="text-2xl font-bold">
+                        Truck Fleet Managment Software
+                      </h3>
+                      <span className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">
+                        <span className="relative flex h-2 w-2">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-75" />
+                          <span className="relative inline-flex h-2 w-2 rounded-full bg-yellow-400" />
+                        </span>
+                        In Development
+                      </span>
+                    </div>
                     <p className="text-gray-400">
                       Truck Fleet is a full-stack logistics management
                       application designed to help companies track trucks,
@@ -272,6 +281,114 @@ export default function ProjectsSection() {
                     className="block transition-transform duration-300 ease-out hover:scale-105 hover:shadow-2xl"
                   >
                     <img src="/moxel.png" alt="Moxel Labs platform" />
+                  </motion.a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Huddle */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gray-900/50 rounded-xl overflow-hidden border border-gray-800"
+          >
+            <div className="p-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div>
+                    <div className="flex items-center gap-3 mb-4">
+                      <h3 className="text-2xl font-bold">Huddle</h3>
+                      <span className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">
+                        <span className="relative flex h-2 w-2">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-75" />
+                          <span className="relative inline-flex h-2 w-2 rounded-full bg-yellow-400" />
+                        </span>
+                        In Development
+                      </span>
+                    </div>
+                    <p className="text-gray-400">
+                      Huddle is a cross-platform mobile app for couples to build
+                      daily connection through guided prompts, shared planning
+                      tools, and gamified engagement. It pairs two users into a
+                      private couple space where everything — from daily
+                      conversation rituals to collaborative lists, calendar, and
+                      wishlist — happens together.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="text-sm font-semibold text-blue-400 mb-3">
+                        Mobile App
+                      </h4>
+                      <ul className="space-y-2 text-sm text-gray-400">
+                        <li>
+                          • React Native & Expo for cross-platform iOS and
+                          Android development.
+                        </li>
+                        <li>
+                          • TypeScript for type-safe, scalable codebase.
+                        </li>
+                        <li>
+                          • Expo Router for file-based navigation.
+                        </li>
+                        <li>
+                          • Real-time sync for chat, shared canvas, and
+                          collaborative lists.
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-semibold text-purple-400 mb-3">
+                        Backend & Services
+                      </h4>
+                      <ul className="space-y-2 text-sm text-gray-400">
+                        <li>• Server functions / API layer for data management.</li>
+                        <li>• Push notifications for daily reminders and partner activity.</li>
+                        <li>• Cloud storage for images, drawings, and gallery.</li>
+                        <li>• Email and social authentication.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <h4 className="text-sm font-semibold text-teal-400">
+                      Key Features
+                    </h4>
+                    <ul className="space-y-2 text-sm text-gray-400">
+                      <li>
+                        • Daily conversation rituals with simultaneous answer
+                        reveal between partners.
+                      </li>
+                      <li>
+                        • Weekly photo quests and a shared couple gallery for
+                        memory browsing.
+                      </li>
+                      <li>
+                        • Real-time collaborative canvas (Duo Doodle), private
+                        chat with sticker support.
+                      </li>
+                      <li>
+                        • Shared lists, couple calendar, and wishlist with link
+                        previews.
+                      </li>
+                      <li>
+                        • Streak-driven retention system with milestone
+                        celebrations and customizable penguin mascot.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-black/30 rounded-xl p-6 my-auto">
+                  <motion.a
+                    href="https://huddle-web-pi.vercel.app/"
+                    target="_blank"
+                    className="block transition-transform duration-300 ease-out hover:scale-105 hover:shadow-2xl"
+                  >
+                    <img src="/huddle.png" alt="Huddle app" />
                   </motion.a>
                 </div>
               </div>
