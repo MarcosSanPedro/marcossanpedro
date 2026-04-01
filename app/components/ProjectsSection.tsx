@@ -384,7 +384,7 @@ export default function ProjectsSection() {
 
                 <div className="bg-black/30 rounded-xl p-6 my-auto">
                   <motion.a
-                    href="https://huddleapp.dev"
+                    href="https://gethuddled.com"
                     target="_blank"
                     className="block transition-transform duration-300 ease-out hover:scale-105 hover:shadow-2xl"
                   >
